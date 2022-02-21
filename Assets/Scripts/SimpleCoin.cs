@@ -5,9 +5,10 @@ namespace DefaultNamespace
 {
     public class SimpleCoin : MonoBehaviour
     {
+        [SerializeField] private string _playerTag = "Player";
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag(_playerTag))
             {
                 Destroy(gameObject);
             }
