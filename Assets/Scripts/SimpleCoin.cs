@@ -5,6 +5,7 @@ namespace DefaultNamespace
 {
     public class SimpleCoin : MonoBehaviour
     {
+        [SerializeField] private int _value = 1;
         [SerializeField] private string _playerTag = "Player";
         [SerializeField] private float _movementTime = 1f;
         [SerializeField] private float _movementSpeed = 1f;
@@ -13,6 +14,7 @@ namespace DefaultNamespace
         {
             if (other.CompareTag(_playerTag))
             {
+                _coinCounter.Add(_value);
                 Destroy(gameObject);
             }
         }
@@ -20,6 +22,7 @@ namespace DefaultNamespace
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _coinCounter = GameObject.FindWithTag("GameController").GetComponent<CoinCounter>();
         }
 
         private void FixedUpdate()
@@ -42,5 +45,6 @@ namespace DefaultNamespace
         private Rigidbody _rigidbody;
         private bool _goingUp = true;
         private float _timer = 0;
+        private CoinCounter _coinCounter;
     }
 }
