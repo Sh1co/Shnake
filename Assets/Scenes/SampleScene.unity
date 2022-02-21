@@ -555,8 +555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613a062fb4f043748e11f3718f61c3d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _piecesCount: 6
-  _minPieceSize: 7
+  _piecesCount: 10
+  _minPieceSize: 5
   _maxPieceSize: 25
   _dir1Piece: {fileID: 1695248928759736282, guid: 7a0a2eec4db135c4d8bff8da82f2f7ec, type: 3}
   _dir2Piece: {fileID: 2876173330737971034, guid: f380f69e773be2b48b316713942a2160, type: 3}
