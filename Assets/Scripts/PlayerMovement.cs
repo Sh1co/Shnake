@@ -35,6 +35,13 @@ public class PlayerMovement : MonoBehaviour
         return _directionIndex == 0 ? Direction1 : Direction2;
     }
 
+    private void OnDisable()
+    {
+        Vector3 velocity = Vector3.zero;
+        velocity.y = _rigidbody.velocity.y;
+        _rigidbody.velocity = velocity;
+    }
+
     private int _directionIndex = 0;
     private Rigidbody _rigidbody;
 }
