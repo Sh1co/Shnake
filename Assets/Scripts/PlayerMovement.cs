@@ -21,6 +21,13 @@ public class PlayerMovement : MonoBehaviour
         {
             _directionIndex = _directionIndex == 0 ? 1 : 0;
         }
+
+        /*if (Input.touchCount <= 0) return;
+        var touch = Input.touches[0];
+        if (touch.phase == TouchPhase.Began)
+        {
+            _directionIndex = _directionIndex == 0 ? 1 : 0;
+        }*/
     }
 
     private void FixedUpdate()
@@ -42,6 +49,13 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody.velocity = velocity;
     }
 
+    public void ResetPosition()
+    {
+        transform.position = Vector3.zero;
+        _directionIndex = 0;
+
+    }
+    
     private int _directionIndex = 0;
     private Rigidbody _rigidbody;
 }
