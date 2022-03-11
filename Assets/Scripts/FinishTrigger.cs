@@ -5,12 +5,14 @@ namespace DefaultNamespace
     public class FinishTrigger : MonoBehaviour
     {
         [SerializeField] private string _playerTag = "Player";
+        public LevelGenerator LevelGenerator;
+        public LevelCounter LevelCounter;
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag(_playerTag)) return;
-            
-            Debug.Log("Finish");
-            other.GetComponent<PlayerMovement>().enabled = false;
+            other.GetComponent<PlayerMovement>().ResetPosition();
+            LevelGenerator.GenerateLevel();
+            LevelCounter.Add(1);
         }
     }
 }

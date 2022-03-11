@@ -9,9 +9,7 @@ namespace DefaultNamespace
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag(_playerTag)) return;
-            
-            Debug.Log("Fail");
-            other.GetComponent<PlayerMovement>().enabled = false;
+            other.GetComponent<PlayerMovement>().ResetPosition();
         }
     }
 }

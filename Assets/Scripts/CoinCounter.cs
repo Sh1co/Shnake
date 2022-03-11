@@ -6,25 +6,19 @@ namespace DefaultNamespace
     public class CoinCounter : MonoBehaviour
     {
         public Action<int> CoinsUpdated;
+        public int Coins { get; private set; } = 0;
 
-        private void Start()
+        private void Awake()
         {
-            _coins = PlayerPrefs.GetInt("coins", 0);
+            Coins = PlayerPrefs.GetInt("coins", 0);
         }
-
-        private void OnDisable()
-        {
-            PlayerPrefs.SetInt("coins", _coins);
-        }
-
 
         public void Add(int amount)
         {
-            _coins += amount;
-            CoinsUpdated?.Invoke(_coins);
-            Debug.Log("Coins count: "+_coins);
+            Coins += amount;
+            PlayerPrefs.SetInt("coins", Coins);
+            CoinsUpdated?.Invoke(Coins);
+            Debug.Log("Coins count: "+Coins);
         }
-
-        private int _coins = 0;
     }
 }
